@@ -57,6 +57,11 @@ PRODUCT_PACKAGES += \
     wget \
     zip
 
+# Turbo
+PRODUCT_PACKAGES += \
+    Turbo \
+    turbo.xml
+
 # Exchange support
 PRODUCT_PACKAGES += \
     Exchange2
