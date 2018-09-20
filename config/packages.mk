@@ -75,6 +75,12 @@ PRODUCT_PACKAGES += \
     UserSix \
     UserSeven
 
+# Pixel Launcher
+PRODUCT_PACKAGES += \
+    launchercheck.rc \
+    launchercheck.sh \
+    pixelrecents
+
 # Extra tools
 PRODUCT_PACKAGES += \
     7z \
