@@ -14,6 +14,9 @@ include vendor/kcuf/config/props.mk
 # Packages
 include vendor/kcuf/config/packages.mk
 
+# Sounds
+include vendor/kcuf/config/sounds.mk
+
 # Backup Tool
 PRODUCT_COPY_FILES += \
     vendor/kcuf/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
