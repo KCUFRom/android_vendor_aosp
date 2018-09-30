@@ -66,7 +66,14 @@ PRODUCT_PACKAGES += \
     SystemDark \
     TealAccent \
     YellowAccent \
-    WhiteAccent
+    WhiteAccent \
+    UserOne \
+    UserTwo \
+    UserThree \
+    UserFour \
+    UserFive \
+    UserSix \
+    UserSeven
 
 # Extra tools
 PRODUCT_PACKAGES += \
