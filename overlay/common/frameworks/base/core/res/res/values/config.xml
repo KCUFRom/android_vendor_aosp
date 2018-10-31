@@ -83,5 +83,9 @@
     <bool name="config_swipe_up_gesture_setting_available">true</bool>
     <bool name="config_smart_battery_available">true</bool>
     <bool name="config_unplugTurnsOnScreen">true</bool>
+
+    <!-- The duration in which a recent task is considered in session and should be visible. -->
+    <integer name="config_activeTaskDurationHours">12</integer>
+
 </resources>
 
