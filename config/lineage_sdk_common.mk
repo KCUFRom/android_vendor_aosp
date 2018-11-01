@@ -1,42 +1,42 @@
-# Permissions for lineage sdk services
+# Permissions for kcuf sdk services
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/org.lineageos.audio.xml:system/etc/permissions/org.lineageos.audio.xml \
-    vendor/lineage/config/permissions/org.lineageos.livedisplay.xml:system/etc/permissions/org.lineageos.livedisplay.xml \
-    vendor/lineage/config/permissions/org.lineageos.performance.xml:system/etc/permissions/org.lineageos.performance.xml \
-    vendor/lineage/config/permissions/org.lineageos.profiles.xml:system/etc/permissions/org.lineageos.profiles.xml \
-    vendor/lineage/config/permissions/org.lineageos.settings.xml:system/etc/permissions/org.lineageos.settings.xml \
-    vendor/lineage/config/permissions/org.lineageos.style.xml:system/etc/permissions/org.lineageos.style.xml \
-    vendor/lineage/config/permissions/org.lineageos.trust.xml:system/etc/permissions/org.lineageos.trust.xml \
-    vendor/lineage/config/permissions/org.lineageos.weather.xml:system/etc/permissions/org.lineageos.weather.xml
+    vendor/kcuf/config/permissions/org.kcufos.audio.xml:system/etc/permissions/org.kcufos.audio.xml \
+    vendor/kcuf/config/permissions/org.kcufos.livedisplay.xml:system/etc/permissions/org.kcufos.livedisplay.xml \
+    vendor/kcuf/config/permissions/org.kcufos.performance.xml:system/etc/permissions/org.kcufos.performance.xml \
+    vendor/kcuf/config/permissions/org.kcufos.profiles.xml:system/etc/permissions/org.kcufos.profiles.xml \
+    vendor/kcuf/config/permissions/org.kcufos.settings.xml:system/etc/permissions/org.kcufos.settings.xml \
+    vendor/kcuf/config/permissions/org.kcufos.style.xml:system/etc/permissions/org.kcufos.style.xml \
+    vendor/kcuf/config/permissions/org.kcufos.trust.xml:system/etc/permissions/org.kcufos.trust.xml \
+    vendor/kcuf/config/permissions/org.kcufos.weather.xml:system/etc/permissions/org.kcufos.weather.xml
 
-# Lineage Platform Library
+# KCUF Platform Library
 PRODUCT_PACKAGES += \
-    org.lineageos.platform-res \
-    org.lineageos.platform \
-    org.lineageos.platform.xml
+    org.kcufos.platform-res \
+    org.kcufos.platform \
+    org.kcufos.platform.xml
 
-# Lineage Hardware Abstraction Framework
+# KCUF Hardware Abstraction Framework
 PRODUCT_PACKAGES += \
-    org.lineageos.hardware \
-    org.lineageos.hardware.xml
+    org.kcufos.hardware \
+    org.kcufos.hardware.xml
 
 # JNI Libraries
 PRODUCT_PACKAGES += \
-    liblineage-sdk_platform_jni
+    libkcuf-sdk_platform_jni
 
-ifndef LINEAGE_PLATFORM_SDK_VERSION
+ifndef KCUF_PLATFORM_SDK_VERSION
   # This is the canonical definition of the SDK version, which defines
   # the set of APIs and functionality available in the platform.  It
   # is a single integer that increases monotonically as updates to
   # the SDK are released.  It should only be incremented when the APIs for
   # the new release are frozen (so that developers don't write apps against
   # intermediate builds).
-  LINEAGE_PLATFORM_SDK_VERSION := 9
+  KCUF_PLATFORM_SDK_VERSION := 9
 endif
 
-ifndef LINEAGE_PLATFORM_REV
+ifndef KCUF_PLATFORM_REV
   # For internal SDK revisions that are hotfixed/patched
-  # Reset after each LINEAGE_PLATFORM_SDK_VERSION release
+  # Reset after each KCUF_PLATFORM_SDK_VERSION release
   # If you are doing a release and this is NOT 0, you are almost certainly doing it wrong
-  LINEAGE_PLATFORM_REV := 0
+  KCUF_PLATFORM_REV := 0
 endif

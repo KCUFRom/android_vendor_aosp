@@ -1,8 +1,8 @@
-# Inherit full common Lineage stuff
-$(call inherit-product, vendor/lineage/config/common_full.mk)
+# Inherit full common KCUF stuff
+$(call inherit-product, vendor/kcuf/config/common_full.mk)
 
 PRODUCT_PACKAGES += \
     AppDrawer \
-    LineageCustomizer
+    KCUFCustomizer
 
-DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/tv
+DEVICE_PACKAGE_OVERLAYS += vendor/kcuf/overlay/tv

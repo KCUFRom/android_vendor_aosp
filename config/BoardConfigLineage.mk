@@ -1,12 +1,12 @@
 # Charger
-ifeq ($(WITH_LINEAGE_CHARGER),true)
-    BOARD_HAL_STATIC_LIBRARIES := libhealthd.lineage
+ifeq ($(WITH_KCUF_CHARGER),true)
+    BOARD_HAL_STATIC_LIBRARIES := libhealthd.kcuf
 endif
 
-include vendor/lineage/config/BoardConfigKernel.mk
+include vendor/kcuf/config/BoardConfigKernel.mk
 
 ifeq ($(BOARD_USES_QCOM_HARDWARE),true)
-include vendor/lineage/config/BoardConfigQcom.mk
+include vendor/kcuf/config/BoardConfigQcom.mk
 endif
 
-include vendor/lineage/config/BoardConfigSoong.mk
+include vendor/kcuf/config/BoardConfigSoong.mk

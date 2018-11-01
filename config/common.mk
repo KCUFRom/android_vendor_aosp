@@ -1,4 +1,4 @@
-PRODUCT_BRAND ?= LineageOS
+PRODUCT_BRAND ?= KCUFRom
 
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
@@ -44,44 +44,44 @@ endif
 
 # Backup Tool
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
-    vendor/lineage/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/lineage/prebuilt/common/bin/50-lineage.sh:system/addon.d/50-lineage.sh \
-    vendor/lineage/prebuilt/common/bin/blacklist:system/addon.d/blacklist
+    vendor/kcuf/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
+    vendor/kcuf/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
+    vendor/kcuf/prebuilt/common/bin/50-kcuf.sh:system/addon.d/50-kcuf.sh \
+    vendor/kcuf/prebuilt/common/bin/blacklist:system/addon.d/blacklist
 
 ifeq ($(AB_OTA_UPDATER),true)
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
-    vendor/lineage/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
-    vendor/lineage/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
+    vendor/kcuf/prebuilt/common/bin/backuptool_ab.sh:system/bin/backuptool_ab.sh \
+    vendor/kcuf/prebuilt/common/bin/backuptool_ab.functions:system/bin/backuptool_ab.functions \
+    vendor/kcuf/prebuilt/common/bin/backuptool_postinstall.sh:system/bin/backuptool_postinstall.sh
 endif
 
 # Backup Services whitelist
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
+    vendor/kcuf/config/permissions/backup.xml:system/etc/sysconfig/backup.xml
 
-# Lineage-specific broadcast actions whitelist
+# KCUF-specific broadcast actions whitelist
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/lineage-sysconfig.xml:system/etc/sysconfig/lineage-sysconfig.xml
+    vendor/kcuf/config/permissions/kcuf-sysconfig.xml:system/etc/sysconfig/kcuf-sysconfig.xml
 
 # init.d support
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
-    vendor/lineage/prebuilt/common/bin/sysinit:system/bin/sysinit
+    vendor/kcuf/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
+    vendor/kcuf/prebuilt/common/bin/sysinit:system/bin/sysinit
 
 ifneq ($(TARGET_BUILD_VARIANT),user)
 # userinit support
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
+    vendor/kcuf/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit
 endif
 
-# Copy all Lineage-specific init rc files
-$(foreach f,$(wildcard vendor/lineage/prebuilt/common/etc/init/*.rc),\
+# Copy all KCUF-specific init rc files
+$(foreach f,$(wildcard vendor/kcuf/prebuilt/common/etc/init/*.rc),\
 	$(eval PRODUCT_COPY_FILES += $(f):system/etc/init/$(notdir $f)))
 
 # Copy over added mimetype supported in libcore.net.MimeUtils
 PRODUCT_COPY_FILES += \
-    vendor/lineage/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
+    vendor/kcuf/prebuilt/common/lib/content-types.properties:system/lib/content-types.properties
 
 # Enable SIP+VoIP on all targets
 PRODUCT_COPY_FILES += \
@@ -91,35 +91,35 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/base/data/keyboards/Vendor_045e_Product_028e.kl:system/usr/keylayout/Vendor_045e_Product_0719.kl
 
-# This is Lineage!
+# This is KCUF!
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/org.lineageos.android.xml:system/etc/permissions/org.lineageos.android.xml \
-    vendor/lineage/config/permissions/privapp-permissions-lineage.xml:system/etc/permissions/privapp-permissions-lineage.xml
+    vendor/kcuf/config/permissions/org.kcufos.android.xml:system/etc/permissions/org.kcufos.android.xml \
+    vendor/kcuf/config/permissions/privapp-permissions-kcuf.xml:system/etc/permissions/privapp-permissions-kcuf.xml
 
 # Hidden API whitelist
 PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/lineage-hiddenapi-package-whitelist.xml:system/etc/permissions/lineage-hiddenapi-package-whitelist.xml
+    vendor/kcuf/config/permissions/kcuf-hiddenapi-package-whitelist.xml:system/etc/permissions/kcuf-hiddenapi-package-whitelist.xml
 
-# Include Lineage audio files
-include vendor/lineage/config/lineage_audio.mk
+# Include KCUF audio files
+include vendor/kcuf/config/kcuf_audio.mk
 
-ifneq ($(TARGET_DISABLE_LINEAGE_SDK), true)
-# Lineage SDK
-include vendor/lineage/config/lineage_sdk_common.mk
+ifneq ($(TARGET_DISABLE_KCUF_SDK), true)
+# KCUF SDK
+include vendor/kcuf/config/kcuf_sdk_common.mk
 endif
 
 # TWRP
 ifeq ($(WITH_TWRP),true)
-include vendor/lineage/config/twrp.mk
+include vendor/kcuf/config/twrp.mk
 endif
 
 # Bootanimation
 PRODUCT_PACKAGES += \
     bootanimation.zip
 
-# Required Lineage packages
+# Required KCUF packages
 PRODUCT_PACKAGES += \
-    LineageParts \
+    KCUFParts \
     Development \
     Profiles
 
@@ -135,11 +135,11 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
     librsjni
 
-# Custom Lineage packages
+# Custom KCUF packages
 PRODUCT_PACKAGES += \
     AudioFX \
-    LineageSettingsProvider \
-    LineageSetupWizard \
+    KCUFSettingsProvider \
+    KCUFSetupWizard \
     Eleven \
     ExactCalculator \
     Jelly \
@@ -155,20 +155,20 @@ PRODUCT_PACKAGES += \
 
 # Berry styles
 PRODUCT_PACKAGES += \
-    LineageBlackTheme \
-    LineageDarkTheme \
-    LineageBlackAccent \
-    LineageBlueAccent \
-    LineageBrownAccent \
-    LineageCyanAccent \
-    LineageGreenAccent \
-    LineageOrangeAccent \
-    LineagePinkAccent \
-    LineagePurpleAccent \
-    LineageRedAccent \
-    LineageYellowAccent
+    KCUFBlackTheme \
+    KCUFDarkTheme \
+    KCUFBlackAccent \
+    KCUFBlueAccent \
+    KCUFBrownAccent \
+    KCUFCyanAccent \
+    KCUFGreenAccent \
+    KCUFOrangeAccent \
+    KCUFPinkAccent \
+    KCUFPurpleAccent \
+    KCUFRedAccent \
+    KCUFYellowAccent
 
-# Extra tools in Lineage
+# Extra tools in KCUF
 PRODUCT_PACKAGES += \
     7z \
     awk \
@@ -191,11 +191,11 @@ PRODUCT_PACKAGES += \
     charger_res_images
 
 # Custom off-mode charger
-ifeq ($(WITH_LINEAGE_CHARGER),true)
+ifeq ($(WITH_KCUF_CHARGER),true)
 PRODUCT_PACKAGES += \
-    lineage_charger_res_images \
+    kcuf_charger_res_images \
     font_log.png \
-    libhealthd.lineage
+    libhealthd.kcuf
 endif
 
 # Filesystems tools
@@ -244,128 +244,128 @@ PRODUCT_PACKAGES += \
 endif
 endif
 
-PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/lineage/overlay
-DEVICE_PACKAGE_OVERLAYS += vendor/lineage/overlay/common
+PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += vendor/kcuf/overlay
+DEVICE_PACKAGE_OVERLAYS += vendor/kcuf/overlay/common
 
 PRODUCT_VERSION_MAJOR = 16
 PRODUCT_VERSION_MINOR = 0
 PRODUCT_VERSION_MAINTENANCE := 0
 
 ifeq ($(TARGET_VENDOR_SHOW_MAINTENANCE_VERSION),true)
-    LINEAGE_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
+    KCUF_VERSION_MAINTENANCE := $(PRODUCT_VERSION_MAINTENANCE)
 else
-    LINEAGE_VERSION_MAINTENANCE := 0
+    KCUF_VERSION_MAINTENANCE := 0
 endif
 
-# Set LINEAGE_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
+# Set KCUF_BUILDTYPE from the env RELEASE_TYPE, for jenkins compat
 
-ifndef LINEAGE_BUILDTYPE
+ifndef KCUF_BUILDTYPE
     ifdef RELEASE_TYPE
-        # Starting with "LINEAGE_" is optional
-        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^LINEAGE_||g')
-        LINEAGE_BUILDTYPE := $(RELEASE_TYPE)
+        # Starting with "KCUF_" is optional
+        RELEASE_TYPE := $(shell echo $(RELEASE_TYPE) | sed -e 's|^KCUF_||g')
+        KCUF_BUILDTYPE := $(RELEASE_TYPE)
     endif
 endif
 
 # Filter out random types, so it'll reset to UNOFFICIAL
-ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(LINEAGE_BUILDTYPE)),)
-    LINEAGE_BUILDTYPE :=
+ifeq ($(filter RELEASE NIGHTLY SNAPSHOT EXPERIMENTAL,$(KCUF_BUILDTYPE)),)
+    KCUF_BUILDTYPE :=
 endif
 
-ifdef LINEAGE_BUILDTYPE
-    ifneq ($(LINEAGE_BUILDTYPE), SNAPSHOT)
-        ifdef LINEAGE_EXTRAVERSION
+ifdef KCUF_BUILDTYPE
+    ifneq ($(KCUF_BUILDTYPE), SNAPSHOT)
+        ifdef KCUF_EXTRAVERSION
             # Force build type to EXPERIMENTAL
-            LINEAGE_BUILDTYPE := EXPERIMENTAL
-            # Remove leading dash from LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := -$(LINEAGE_EXTRAVERSION)
+            KCUF_BUILDTYPE := EXPERIMENTAL
+            # Remove leading dash from KCUF_EXTRAVERSION
+            KCUF_EXTRAVERSION := $(shell echo $(KCUF_EXTRAVERSION) | sed 's/-//')
+            # Add leading dash to KCUF_EXTRAVERSION
+            KCUF_EXTRAVERSION := -$(KCUF_EXTRAVERSION)
         endif
     else
-        ifndef LINEAGE_EXTRAVERSION
+        ifndef KCUF_EXTRAVERSION
             # Force build type to EXPERIMENTAL, SNAPSHOT mandates a tag
-            LINEAGE_BUILDTYPE := EXPERIMENTAL
+            KCUF_BUILDTYPE := EXPERIMENTAL
         else
-            # Remove leading dash from LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-            # Add leading dash to LINEAGE_EXTRAVERSION
-            LINEAGE_EXTRAVERSION := -$(LINEAGE_EXTRAVERSION)
+            # Remove leading dash from KCUF_EXTRAVERSION
+            KCUF_EXTRAVERSION := $(shell echo $(KCUF_EXTRAVERSION) | sed 's/-//')
+            # Add leading dash to KCUF_EXTRAVERSION
+            KCUF_EXTRAVERSION := -$(KCUF_EXTRAVERSION)
         endif
     endif
 else
-    # If LINEAGE_BUILDTYPE is not defined, set to UNOFFICIAL
-    LINEAGE_BUILDTYPE := UNOFFICIAL
-    LINEAGE_EXTRAVERSION :=
+    # If KCUF_BUILDTYPE is not defined, set to UNOFFICIAL
+    KCUF_BUILDTYPE := UNOFFICIAL
+    KCUF_EXTRAVERSION :=
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+ifeq ($(KCUF_BUILDTYPE), UNOFFICIAL)
     ifneq ($(TARGET_UNOFFICIAL_BUILD_ID),)
-        LINEAGE_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
+        KCUF_EXTRAVERSION := -$(TARGET_UNOFFICIAL_BUILD_ID)
     endif
 endif
 
-ifeq ($(LINEAGE_BUILDTYPE), RELEASE)
+ifeq ($(KCUF_BUILDTYPE), RELEASE)
     ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-        LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LINEAGE_BUILD)
+        KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(KCUF_BUILD)
     else
         ifeq ($(TARGET_BUILD_VARIANT),user)
-            ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-                LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+            ifeq ($(KCUF_VERSION_MAINTENANCE),0)
+                KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(KCUF_BUILD)
             else
-                LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+                KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(KCUF_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(KCUF_BUILD)
             endif
         else
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(LINEAGE_BUILD)
+            KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)$(PRODUCT_VERSION_DEVICE_SPECIFIC)-$(KCUF_BUILD)
         endif
     endif
 else
-    ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-        ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+    ifeq ($(KCUF_VERSION_MAINTENANCE),0)
+        ifeq ($(KCUF_VERSION_APPEND_TIME_OF_DAY),true)
+            KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d_%H%M%S)-$(KCUF_BUILDTYPE)$(KCUF_EXTRAVERSION)-$(KCUF_BUILD)
         else
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+            KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(shell date -u +%Y%m%d)-$(KCUF_BUILDTYPE)$(KCUF_EXTRAVERSION)-$(KCUF_BUILD)
         endif
     else
-        ifeq ($(LINEAGE_VERSION_APPEND_TIME_OF_DAY),true)
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+        ifeq ($(KCUF_VERSION_APPEND_TIME_OF_DAY),true)
+            KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(KCUF_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d_%H%M%S)-$(KCUF_BUILDTYPE)$(KCUF_EXTRAVERSION)-$(KCUF_BUILD)
         else
-            LINEAGE_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(LINEAGE_BUILDTYPE)$(LINEAGE_EXTRAVERSION)-$(LINEAGE_BUILD)
+            KCUF_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(KCUF_VERSION_MAINTENANCE)-$(shell date -u +%Y%m%d)-$(KCUF_BUILDTYPE)$(KCUF_EXTRAVERSION)-$(KCUF_BUILD)
         endif
     endif
 endif
 
 PRODUCT_EXTRA_RECOVERY_KEYS += \
-    vendor/lineage/build/target/product/security/lineage
+    vendor/kcuf/build/target/product/security/kcuf
 
--include vendor/lineage-priv/keys/keys.mk
+-include vendor/kcuf-priv/keys/keys.mk
 
-LINEAGE_DISPLAY_VERSION := $(LINEAGE_VERSION)
+KCUF_DISPLAY_VERSION := $(KCUF_VERSION)
 
 ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),)
 ifneq ($(PRODUCT_DEFAULT_DEV_CERTIFICATE),build/target/product/security/testkey)
-    ifneq ($(LINEAGE_BUILDTYPE), UNOFFICIAL)
+    ifneq ($(KCUF_BUILDTYPE), UNOFFICIAL)
         ifndef TARGET_VENDOR_RELEASE_BUILD_ID
-            ifneq ($(LINEAGE_EXTRAVERSION),)
-                # Remove leading dash from LINEAGE_EXTRAVERSION
-                LINEAGE_EXTRAVERSION := $(shell echo $(LINEAGE_EXTRAVERSION) | sed 's/-//')
-                TARGET_VENDOR_RELEASE_BUILD_ID := $(LINEAGE_EXTRAVERSION)
+            ifneq ($(KCUF_EXTRAVERSION),)
+                # Remove leading dash from KCUF_EXTRAVERSION
+                KCUF_EXTRAVERSION := $(shell echo $(KCUF_EXTRAVERSION) | sed 's/-//')
+                TARGET_VENDOR_RELEASE_BUILD_ID := $(KCUF_EXTRAVERSION)
             else
                 TARGET_VENDOR_RELEASE_BUILD_ID := $(shell date -u +%Y%m%d)
             endif
         else
             TARGET_VENDOR_RELEASE_BUILD_ID := $(TARGET_VENDOR_RELEASE_BUILD_ID)
         endif
-        ifeq ($(LINEAGE_VERSION_MAINTENANCE),0)
-            LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+        ifeq ($(KCUF_VERSION_MAINTENANCE),0)
+            KCUF_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(KCUF_BUILD)
         else
-            LINEAGE_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(LINEAGE_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(LINEAGE_BUILD)
+            KCUF_DISPLAY_VERSION := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(KCUF_VERSION_MAINTENANCE)-$(TARGET_VENDOR_RELEASE_BUILD_ID)-$(KCUF_BUILD)
         endif
     endif
 endif
 endif
 
 -include $(WORKSPACE)/build_env/image-auto-bits.mk
--include vendor/lineage/config/partner_gms.mk
+-include vendor/kcuf/config/partner_gms.mk
 
 $(call inherit-product-if-exists, vendor/extra/product.mk)

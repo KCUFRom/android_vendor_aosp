@@ -16,8 +16,8 @@
 
 <permissions>
     <!-- The feature listed here coincides with the TrustInterfaceService declared as
-        part of the external lineage service init in SystemServer. If this xml isn't present
+        part of the external kcuf service init in SystemServer. If this xml isn't present
         on the device, the service will not be published as a binder service!
     -->
-    <feature name="org.lineageos.trust" />
+    <feature name="org.kcufos.trust" />
 </permissions>

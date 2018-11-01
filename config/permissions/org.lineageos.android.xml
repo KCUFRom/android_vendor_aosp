@@ -14,8 +14,8 @@
      limitations under the License.
 -->
 
-<!-- This feature shows that this is LineageOS -->
+<!-- This feature shows that this is KCUFRom -->
 <permissions>
-    <feature name="org.lineageos.android" />
+    <feature name="org.kcufos.android" />
 </permissions>
 

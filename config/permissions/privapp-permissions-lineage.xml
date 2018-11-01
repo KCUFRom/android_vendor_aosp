@@ -45,39 +45,39 @@
         <permission name="com.android.permission.WRITE_EMBEDDED_SUBSCRIPTIONS"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.audiofx">
+    <privapp-permissions package="org.kcufos.audiofx">
         <permission name="android.permission.CHANGE_COMPONENT_ENABLED_STATE"/>
         <permission name="android.permission.MEDIA_CONTENT_CONTROL"/>
         <permission name="android.permission.MODIFY_AUDIO_ROUTING"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.eleven">
+    <privapp-permissions package="org.kcufos.eleven">
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.flipflap">
+    <privapp-permissions package="org.kcufos.flipflap">
         <permission name="android.permission.ACCESS_NOTIFICATIONS"/>
         <permission name="android.permission.MODIFY_PHONE_STATE"/>
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.lineageparts">
+    <privapp-permissions package="org.kcufos.kcufparts">
         <permission name="android.permission.CHANGE_CONFIGURATION"/>
         <permission name="android.permission.READ_SEARCH_INDEXABLES"/>
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.lineagesettings">
+    <privapp-permissions package="org.kcufos.kcufsettings">
         <permission name="android.permission.MANAGE_USERS"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.recorder">
+    <privapp-permissions package="org.kcufos.recorder">
         <permission name="android.permission.CAPTURE_SECURE_VIDEO_OUTPUT"/>
         <permission name="android.permission.CAPTURE_VIDEO_OUTPUT"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.setupwizard">
+    <privapp-permissions package="org.kcufos.setupwizard">
         <permission name="android.permission.CHANGE_CONFIGURATION"/>
         <permission name="android.permission.STATUS_BAR"/>
         <permission name="android.permission.WRITE_SECURE_SETTINGS"/>
@@ -91,17 +91,17 @@
         <permission name="android.permission.READ_PRIVILEGED_PHONE_STATE"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.snap">
+    <privapp-permissions package="org.kcufos.snap">
         <permission name="android.permission.PREVENT_POWER_KEY"/>
         <permission name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
         <permission name="android.permission.WRITE_MEDIA_STORAGE"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.trebuchet">
+    <privapp-permissions package="org.kcufos.trebuchet">
         <permission name="android.permission.BIND_APPWIDGET"/>
     </privapp-permissions>
 
-    <privapp-permissions package="org.lineageos.updater">
+    <privapp-permissions package="org.kcufos.updater">
         <permission name="android.permission.ACCESS_CACHE_FILESYSTEM"/>
         <permission name="android.permission.REBOOT"/>
         <permission name="android.permission.RECOVERY"/>
