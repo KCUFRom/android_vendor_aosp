@@ -22,6 +22,9 @@ PRODUCT_PACKAGES += \
     Launcher3QuickStep \
     MiXplorer \
     messaging \
+    SnapdragonCamera \
+    SnapdragonGallery \
+    SnapdragonMusic \
     Stk
 
 # Extra tools
