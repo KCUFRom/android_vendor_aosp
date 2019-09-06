@@ -38,7 +38,7 @@ checkapi-kcuf : check-kcuf-public-api
 # (See kcuf-sdk/Android.mk)
 # we need to add api-stubs as additional dependency of the api check.
 
-$(INTERNAL_KCUF_PLATFORM_API_FILE): kcuf-api-stubs-docs
+$(INTERNAL_KCUF_PLATFORM_API_FILE):
 
 # Check that the API we're building hasn't broken the last-released
 # SDK version.
