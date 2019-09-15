@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-KCUF_MOD_VERSION = 9.0
+KCUF_MOD_VERSION = 10.0
 
 ifndef KCUF_BUILD_TYPE
     KCUF_BUILD_TYPE := UNOFFICIAL
@@ -22,9 +22,7 @@ endif
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
 
 ifeq ($(KCUF_BUILD_TYPE), OFFICIAL)
-    LIST = $(shell curl -s https://raw.githubusercontent.com/KCUFRom/android_vendor_kcuf/p/kcuf.devices)
-    FOUND_DEVICE =  $(filter $(CURRENT_DEVICE), $(LIST))
-    ifneq ($(FOUND_DEVICE), $(CURRENT_DEVICE))
+    ifneq ($(CURRENT_DEVICE), whyred)
         KCUF_BUILD_TYPE := UNOFFICIAL
         $(error $(CURRENT_DEVICE) is not an Official Device)
     endif
